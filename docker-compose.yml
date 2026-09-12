@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  # 1. Aapka Node.js App
+  web:
+    image: docker-lab:latest
+    build: .
+    container_name: docker-lab-app
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - CUSTOM_MESSAGE=Hello from Docker Compose!
+    depends_on:
+      - redis
+
+  # 2. Redis Database Container
+  redis:
+    image: redis:alpine
+    container_name: docker-lab-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+
+volumes:
+  redis-data:
