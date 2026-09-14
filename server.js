@@ -83,6 +83,12 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'healthy', timestamp: new Date().toISOString(), containerId: os.hostname() });
 });
 
+app.get('api/om',(req,res)=>{
+  res.send("this is from om")
+})
+app.get('api/arjun',(req,res)=>{
+  res.send("this is from arjun")
+})
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Docker Learning Lab running at http://localhost:${PORT}`);
   console.log(`📦 Host/Container ID: ${os.hostname()}`);
