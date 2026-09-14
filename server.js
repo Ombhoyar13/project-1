@@ -89,6 +89,9 @@ app.get('/api/om', (req, res) => {
 app.get('/api/arjun', (req, res) => {
   res.send("this is from arjun");
 });
+app.get('/api/manthan', (req, res) => {
+  res.send("this is from manthan");
+});
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Docker Learning Lab running at http://localhost:${PORT}`);
   console.log(`📦 Host/Container ID: ${os.hostname()}`);
